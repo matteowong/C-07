@@ -19,6 +19,16 @@ int main() {
     printf("random %d: %d\n",i,ia[i]);
   }
 
+  int fd;
+  fd=open("foo",O_CREAT | O_WRONLY | O_RDONLY,0644);
+  int bytes_written=write("foo",ia,sizeof(ia));
+  printf("write returns: %d",bytes_written);
+  int check[10];
+  read("foo",check,sizeof(check));
+  i=0;
+  for (;i<10;i++)
+    printf("random %d: %d",i,check[i]);
+  
   return 0;
 
 }
