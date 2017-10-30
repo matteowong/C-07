@@ -28,8 +28,7 @@ int main() {
   int fd;
   fd=open("foo",O_CREAT | O_WRONLY | O_EXCL ,0644);
   if (fd==-1) {
-    printf("remember to remove foo! try again\n");
-    return 0;
+    printf("\nERROR: %s\n\nrest of code may not function\n\n",strerror(errno));
   }
   int bytes_written=write(fd,ia,sizeof(ia));
   printf("write returns: %d\n",bytes_written);
